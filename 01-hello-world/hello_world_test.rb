@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 begin
-  gem 'minitest', '>= 5.0.0'
-  require 'minitest/autorun'
-  require_relative 'hello_world'
+  gem "minitest", ">= 5.0.0"
+  require "minitest/autorun"
+  require_relative "hello_world"
 rescue Gem::LoadError => e
   puts "\nMissing Dependency:\n#{e.backtrace.first} #{e.message}"
-  puts 'Minitest 5.0 gem must be installed for the xRuby track.'
+  puts "Minitest 5.0 gem must be installed for the xRuby track."
 rescue LoadError => e
   puts "\nError:\n#{e.backtrace.first} #{e.message}"
   puts DATA.read
@@ -17,17 +17,15 @@ end
 
 class HelloWorldTest < Minitest::Test
   def test_no_name
-    assert_equal 'Hello, World!', HelloWorld.hello
+    assert_equal "Hello, World!", HelloWorld.hello
   end
 
   def test_sample_name
-    skip
-    assert_equal 'Hello, Alice!', HelloWorld.hello('Alice')
+    assert_equal "Hello, Alice!", HelloWorld.hello("Alice")
   end
 
   def test_other_sample_name
-    skip
-    assert_equal 'Hello, Bob!', HelloWorld.hello('Bob')
+    assert_equal "Hello, Bob!", HelloWorld.hello("Bob")
   end
 end
 
